@@ -1,0 +1,55 @@
+
+
+<div class="container" align="center">
+    <h1 class="mt-5">
+        Búsqueda
+    </h3>
+    <div class="col-12 mt-5" align="center">
+        <iframe id="cible" style="width: 100%; height: 50vh; border: none;" src="" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+    </div>
+    <div class="mt-5" align="center">
+        <button class="btn btn-danger" onclick="redireccionar()">
+            Volver
+        </button>
+    </div>
+</div>
+
+
+<script>
+
+    var paramstr = window.location.search.substr(1);
+    var paramarr = paramstr.split ("?");
+    var params = {};
+
+    for ( var i = 0; i < paramarr.length; i++) {
+        var tmparr = paramarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+
+    if(params["Actividad"] != -1)
+    {
+        var actividad = params["Actividad"];
+    }
+    else
+    {
+        var actividad = "Q41253";
+    }
+
+    var lugar = "Q29";
+    var url="https://query.wikidata.org/embed.html#SELECT%20%3Fitem%20%3FitemLabel%20%3Fcoordinates%20%20WHERE%20%7B%0A%20%20%20%20%3Fitem%20wdt%3AP31%2Fwdt%3AP279*%20wd%3A"+ actividad +".%0A%20%20%20%20%3Fitem%20wdt%3AP625%20%3Fcoordinates.%0A%20%20%20%20%3Fitem%20wdt%3AP17%20wd%3A"+ lugar + "%0A%20%20%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22es%22%20%7D%20.%20%0A%7D";
+    document.getElementById('cible').src=url;
+
+    {{!-- https://query.wikidata.org/#SELECT%20%3Fitem%20%3FitemLabel%20%3Fcoordinates%20%20WHERE%20%7B%0A%20%20%20%20%3Fitem%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ41253.%0A%20%20%20%20%3Fitem%20wdt%3AP625%20%3Fcoordinates.%0A%20%20%20%20%3Fitem%20wdt%3AP17%20wd%3AQ29%0A%20%20%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22es%22%20%7D%20.%20%0A%7D --}}
+
+    {{!-- SELECT ?item ?itemLabel ?coordinates  WHERE {
+            ?item wdt:P31/wdt:P279* wd:Q41253.
+            ?item wdt:P625 ?coordinates.
+            ?item wdt:P17 wd:Q29
+            SERVICE wikibase:label { bd:serviceParam wikibase:language "es" } . 
+    } --}}
+
+    function redireccionar(){
+        window.location= href="/";
+    } 
+
+</script>

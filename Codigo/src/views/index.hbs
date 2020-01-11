@@ -1,0 +1,68 @@
+
+<div class="container" align="center">
+    <img class="mt-3" src="img/ocio.png" alt="icono" width="85%"> 
+    <h3 class="mt-5">¿Qué te apetece hacer hoy?</h3>
+        <div class="col-12 mt-4" align="center">
+            <h3>Actividad</h3>
+            <div class="row mt-4">
+                <div class="col-2"></div>
+                <button class="btn btn-info col-2" onclick="AgregarActividad('Q41253')">
+                    Cine
+                </button>
+                <div class="col-1"></div>
+                <button class="btn btn-success col-2" onclick="AgregarActividad('Q33506')">
+                    Museo
+                </button>
+                <div class="col-1"></div>
+                <button class="btn btn-dark col-2" onclick="AgregarActividad('Q740326')">
+                    Parque Acuático
+                </button>
+            </div>
+        </div>
+        <div class="col-12 mt-4" align="center">
+            <div class="row mt-4">
+                <div class="col-2"></div>
+                <button class="btn btn-warning col-2" onclick="AgregarActividad('Q11315')">
+                    Centro Comercial
+                </button>
+                <div class="col-1"></div>
+                <button class="btn btn-secondary col-2" onclick="AgregarActividad('Q46169')">
+                    Parque Nacional
+                </button>
+                <div class="col-1"></div>
+                <button class="btn btn-info col-2" onclick="AgregarActividad('Q22698')">
+                    Parque
+                </button>
+            </div>
+        </div>
+        <div class="col-12 mt-4" align="center">
+            <div class="row mt-4">
+                <div class="col-2"></div>
+                <button class="btn btn-success col-2" onclick="AgregarActividad('Q40080')">
+                    Playa
+                </button>
+                <div class="col-1"></div>
+                <button class="btn btn-dark col-2" onclick="AgregarActividad('Q11707')">
+                    Restaurante 
+                </button>
+                <div class="col-1"></div>
+                <button class="btn btn-warning col-2" onclick="AgregarActividad('Q43501')">
+                    Zoológico 
+                </button>
+            </div>
+        </div>
+</div>
+
+<script>
+
+    var actividad = "Q41253";
+
+    function AgregarActividad(elemento){
+        actividad = elemento;
+        redireccionar();
+    } 
+    
+    function redireccionar(){
+        window.location= href="/busqueda?Actividad=" + actividad;
+    } 
+</script>
